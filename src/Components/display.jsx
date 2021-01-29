@@ -1,10 +1,17 @@
 import React, { Component } from "react";
-
+import empty from "../empty.svg";
 class Display extends Component {
   state = {};
 
   renderNotes() {
     let { notesItems } = this.props;
+    if (notesItems.length === 0) {
+      return (
+        <React.Fragment>
+          <img src={empty} alt="empty here" height="200" />
+        </React.Fragment>
+      );
+    }
     return (
       <React.Fragment>
         {notesItems.map((item) => {
